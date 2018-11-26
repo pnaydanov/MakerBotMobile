@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab,
   Button, Left, Right, Body, Icon, Text } from 'native-base';
 
+import List from 'features/list';
+
 class Home extends Component {
   render() {
     const { onClickMenu } = this.props;
@@ -19,9 +21,7 @@ class Home extends Component {
             <Right />
           </Header>
           <Content>
-            <Text>
-              This is Content Section
-            </Text>
+            <List />
           </Content>
           <Footer>
             <FooterTab>
