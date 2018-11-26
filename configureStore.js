@@ -6,7 +6,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-import * as ListFeature from './features/List';
+import * as listFeature from './features/list';
 
 function configureStore(extra) {
   const middlewares = [
@@ -26,7 +26,7 @@ function configureStore(extra) {
 
 function createReducer() {
   return combineReducers({
-    list: ListFeature.reducer,
+    list: listFeature.reducer,
   });
 }
 

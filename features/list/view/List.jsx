@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { actions as listActions } from './redux';
+import { actions as listActions } from 'features/list/redux';
 
 class RepoList extends Component {
   componentDidMount() {

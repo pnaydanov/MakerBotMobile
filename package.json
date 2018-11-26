@@ -1,5 +1,5 @@
 {
-  "name": "empty-project-template",
+  "name": "app",
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-expo": "^5.0.0",
     "remote-redux-devtools": "^0.5.13"
   }
