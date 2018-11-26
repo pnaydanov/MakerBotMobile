@@ -3,8 +3,8 @@ import { Drawer } from 'native-base';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 
-import Menu from './screens/Menu/Menu';
-import Home from './screens/Home/Home';
+import Menu from './containers/Menu';
+import Home from './containers/Home';
 
 import Api from './shared/services/api';
 
