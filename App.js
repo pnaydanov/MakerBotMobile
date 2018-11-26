@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { Drawer } from 'native-base';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import axios from 'axios';
-import axiosMiddleware from 'redux-axios-middleware';
+import configureStore from './configureStore';
 
 import Menu from './screens/Menu/Menu';
 import Home from './screens/Home/Home';
-import reducer from './reducer';
 
-const client = axios.create({
-  baseURL: 'https://api.github.com',
-  responseType: 'json'
-});
+import Api from './shared/services/api';
 
-const store = createStore(reducer, applyMiddleware(axiosMiddleware(client)));
+const api = new Api();
+const store = configureStore({api});
+
 class App extends Component {
   closeDrawer = () => {
     this.drawer._root.close()

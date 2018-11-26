@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Header, Title, Content, Footer, FooterTab,
   Button, Left, Right, Body, Icon, Text } from 'native-base';
 
-import List from '../../components/List/List';
+import List from '../../features/List/List';
 
 class Home extends Component {
   render() {

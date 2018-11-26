@@ -7,13 +7,15 @@ import { actions as listActions } from './redux';
 
 class RepoList extends Component {
   componentDidMount() {
-    this.props.listRepos('relferreira');
+    this.props.getRepos();
   }
+
   renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text>{item.name}</Text>
     </View>
   );
+
   render() {
     const { repos } = this.props;
     return (
@@ -37,8 +39,8 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = state => {
-  let storedRepositories = state.repos.map(repo => ({ key: repo.id, ...repo }));
+function mapStateToProps(state) {
+  let storedRepositories = state.list.repos.map(repo => ({ key: repo.id, ...repo }));
   return {
     repos: storedRepositories,
   };
@@ -46,9 +48,9 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   const actions = {
-    listRepos: listActions.listRepos,
+    getRepos: listActions.getRepos,
   }
-  return bindActionCreators(actions, dispatch)
+  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RepoList);
