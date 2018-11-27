@@ -12,7 +12,7 @@ class Home extends Component {
           <Header>
             <Left>
               <Button transparent onPress={onClickMenu}>
-                <Icon name='menu' ios="ios-menu" />
+                <Icon name='menu' ios="ios-menu" android="md-menu" />
               </Button>
             </Left>
             <Body>
