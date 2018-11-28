@@ -6,7 +6,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 
-import * as listFeature from './features/list';
+import * as listFeature from 'features/list';
 
 function configureStore(extra) {
   const middlewares = [

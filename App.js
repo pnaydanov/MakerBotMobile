@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import { createAppContainer } from 'react-navigation';
 import { Font, AppLoading } from 'expo';
 
-import Router from './screens/router';
+import Router from 'screens/router';
+import Api from 'shared/services/api';
 import configureStore from './configureStore';
-import Api from './shared/services/api';
 
 const api = new Api();
 const store = configureStore({ api });
