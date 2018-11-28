@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Container, Body, Content, Input, Item, Label, Button, Text } from "native-base";
+import React, { Component } from 'react';
+import { Container, Content, Input, Item, Label, Button, Text } from 'native-base';
 
-import Header from 'components/Header'
+import Header from 'components/Header';
 // TODO: вынести стили в отдельный файл
 class JadeChat extends Component {
   render() {
@@ -14,9 +14,11 @@ class JadeChat extends Component {
             <Label>Jade Chat</Label>
             <Input />
           </Item>
-          <Button rounded danger
-            style={{ marginTop: 20, alignSelf: "center" }}
-            onPress={() => navigate("Profile")}>
+          <Button
+            rounded
+            danger
+            style={{ marginTop: 20, alignSelf: 'center' }}
+            onPress={() => navigate('Profile')}>
             <Text>Goto Jade Profile</Text>
           </Button>
         </Content>

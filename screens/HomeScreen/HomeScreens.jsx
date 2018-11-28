@@ -1,12 +1,21 @@
-import React, { Component } from "react";
-import { Container, Button, Body, Content,Text, Card, CardItem } from "native-base";
+/* @flow */
+import React, { Component } from 'react';
+import { Container, Button, Body, Content, Text, Card, CardItem } from 'native-base';
 
 import Header from 'components/Header';
 
+type Props = {
+  navigation: {
+    openDrawer: Function,
+    navigate: Function,
+    state: Object,
+  },
+};
+
 // TODO: вынести стили в отдельный файл
-class HomeScreen extends Component {
+class HomeScreen extends Component<Props> {
   render() {
-    const { navigation: { openDrawer, navigate, state }} = this.props;
+    const { navigation: { openDrawer, navigate, state } } = this.props;
     return (
       <Container>
         <Header openDrawer={openDrawer} title={state.routeName} />
@@ -18,14 +27,18 @@ class HomeScreen extends Component {
               </Body>
             </CardItem>
           </Card>
-          <Button full rounded dark
+          <Button full
+            rounded
+            dark
             style={{ marginTop: 10 }}
-            onPress={() => navigate("Chat")}>
+            onPress={() => navigate('Chat')}>
             <Text>Chat With People</Text>
           </Button>
-          <Button full rounded primary
+          <Button full
+            rounded
+            primary
             style={{ marginTop: 10 }}
-            onPress={() => navigate("Profile")}>
+            onPress={() => navigate('Profile')}>
             <Text>Goto Profiles</Text>
           </Button>
         </Content>

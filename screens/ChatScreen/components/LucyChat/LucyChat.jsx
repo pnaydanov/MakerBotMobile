@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import { Container, Body, Content, Input, Item, Label, Button, Text } from "native-base";
+/* @flow */
+import React, { Component } from 'react';
+import { Container, Content, Input, Item, Label, Button, Text } from 'native-base';
 
 import Header from 'components/Header';
 // TODO: вынести стили в отдельный файл
@@ -14,9 +15,11 @@ class LucyChat extends Component {
             <Label>Lucy Chat</Label>
             <Input />
           </Item>
-          <Button rounded danger
-            style={{ marginTop: 20, alignSelf: "center" }}
-            onPress={() => navigate("Profile")}>
+          <Button
+            rounded
+            danger
+            style={{ marginTop: 20, alignSelf: 'center' }}
+            onPress={() => navigate('Profile')}>
             <Text>Goto Lucy Profile</Text>
           </Button>
         </Content>

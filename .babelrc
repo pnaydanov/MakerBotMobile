@@ -1,4 +1,5 @@
 {
+  "presets": ["flow"],
   "plugins": [
     ["module-resolver", {
       "root": ["./"],
