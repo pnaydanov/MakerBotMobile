@@ -1,29 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
 import { Alert } from "react-native";
-import { Container, Header, Left, Body, Title, Card, CardItem, Content, Right, Icon, Button, Text } from "native-base";
-import EditScreenOne from "./components/EditScreenOne";
-// import EditScreenTwo from "./EditScreenTwo";
+import { Container, Header, Left, Body, Title, Card, CardItem,
+  Content, Right, Icon, Button, Text } from "native-base";
 
-export default class Profile extends React.Component {
+import TopHeader from 'components/Header';
+
+class Profile extends Component {
   componentDidMount() {
     Alert.alert("No Users Found", "Oops, Looks like you are not signed in");
   }
+
   render() {
+    const { navigation: { openDrawer, navigate, state }} = this.props;
     return (
       <Container>
+        <TopHeader title="Header" openDrawer={openDrawer} />
         <Content padder>
           <Card>
             <CardItem>
-              <Icon active name="paper-plane" />
+              <Icon active name="paper-plane" ios="ios-paper-plane" />
               <Text>Show User profiles here</Text>
               <Right>
-                <Icon name="close" />
+                <Icon name="close" ios="ios-close" />
               </Right>
             </CardItem>
           </Card>
           <Button full rounded primary
             style={{ marginTop: 10 }}
-            onPress={() => this.props.navigation.navigate("EditScreenOne")}>
+            onPress={() => navigate("EditScreenOne")}>
             <Text>Goto EditScreen One</Text>
           </Button>
         </Content>
@@ -32,18 +36,4 @@ export default class Profile extends React.Component {
   }
 }
 
-Profile.navigationOptions = ({ navigation }) => ({
-  header: (
-    <Header>
-      <Left>
-        <Button transparent onPress={() => navigation.navigate("DrawerOpen")}>
-          <Icon name="menu" />
-        </Button>
-      </Left>
-      <Body>
-        <Title>Profile</Title>
-      </Body>
-      <Right />
-    </Header>
-  )
-});
+export default Profile;
