@@ -1,10 +1,18 @@
+/* @flow */
 import React, { Component } from 'react';
 import { Alert } from 'react-native';
 import { Container, Card, CardItem, Content, Right, Icon, Button, Text } from 'native-base';
 
 import TopHeader from 'components/Header';
 
-class Profile extends Component {
+type Props = {
+  navigation: {
+    openDrawer: Function,
+    navigate: Function,
+  },
+};
+
+class Profile extends Component<Props> {
   componentDidMount() {
     Alert.alert('No Users Found', 'Oops, Looks like you are not signed in');
   }

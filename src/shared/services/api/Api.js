@@ -1,8 +1,9 @@
+/* @flow */
 import axios from 'axios';
 
 class Api {
-  constructor() {
-    this.url = 'https://api.github.com';
+  constructor(url: string) {
+    this.url = url || 'https://api.github.com';
   }
 
   async getRepos() {

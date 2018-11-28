@@ -4,7 +4,8 @@ import { Container } from 'native-base';
 
 import List from 'features/list';
 
-class RepoScreen extends Component {
+type Props = {}
+class RepoScreen extends Component<Props> {
   render() {
     return (
       <Container>
