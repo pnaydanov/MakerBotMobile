@@ -1,45 +1,51 @@
 import React, { Component } from 'react';
-import { Drawer } from 'native-base';
 import { Provider } from 'react-redux';
-import configureStore from './configureStore';
+import { createAppContainer } from "react-navigation";
 import { Font } from "expo";
 
-import Menu from './containers/Menu';
-import Home from './containers/Home';
-
+import Router from "./screens/router";
+import configureStore from './configureStore';
 import Api from './shared/services/api';
 
 const api = new Api();
 const store = configureStore({api});
 
 class App extends Component {
-
-  // Костыль для загрузки шрифтов библиотеки native-base(в android без этого не работало)
-  async componentWillMount() {
-    await Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
-    });
+  constructor() {
+    super();
+    this.state = {
+      isReady: false
+    };
   }
 
-  closeDrawer = () => {
-    this.drawer._root.close()
-  };
-  openDrawer = () => {
-    this.drawer._root.open()
-  };
+  async componentWillMount() {
+    // Костыль для загрузки шрифтов библиотеки native-base(в android без этого не работало)
+    await this._loadFont();
+  }
 
   render() {
+    const { isReady } = this.state;
+    const App = createAppContainer(Router);
+
     return (
-      <Provider store={store}>
-        <Drawer
-          ref={(ref) => { this.drawer = ref; }}
-          content={<Menu />}
-          onClose={() => this.closeDrawer()} >
-            <Home onClickMenu={() => this.openDrawer()}/>
-        </Drawer>
-      </Provider>
-    );
+      !isReady ?
+        <Expo.AppLoading /> :
+        (
+          <Provider store={store}>
+            <App />
+          </Provider>
+        )
+    )
+  }
+
+  /** Загружает шрифты для native-base */
+  _loadFont() {
+    Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      Ionicons: require("native-base/Fonts/Ionicons.ttf")
+    });
+    this.setState({ isReady: true });
   }
 }
 
