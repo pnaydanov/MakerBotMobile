@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { createAppContainer } from "react-navigation";
-import { Font } from "expo";
+import { createAppContainer } from 'react-navigation';
+import { Font, AppLoading } from 'expo';
 
-import Router from "./screens/router";
+import Router from './screens/router';
 import configureStore from './configureStore';
 import Api from './shared/services/api';
 
 const api = new Api();
-const store = configureStore({api});
+const store = configureStore({ api });
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isReady: false
+      isReady: false,
     };
   }
 
@@ -25,25 +25,26 @@ class App extends Component {
 
   render() {
     const { isReady } = this.state;
-    const App = createAppContainer(Router);
+    const AppContainer = createAppContainer(Router);
 
     return (
-      !isReady ?
-        <Expo.AppLoading /> :
-        (
+      !isReady
+        ? <AppLoading />
+        : (
           <Provider store={store}>
-            <App />
+            <AppContainer />
           </Provider>
         )
-    )
+    );
   }
 
   /** Загружает шрифты для native-base */
+  /* eslint-disable */
   _loadFont() {
     Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      Ionicons: require("native-base/Fonts/Ionicons.ttf")
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+      Ionicons: require('native-base/Fonts/Ionicons.ttf'),
     });
     this.setState({ isReady: true });
   }
