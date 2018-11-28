@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Alert } from "react-native";
-import { Container, Header, Left, Body, Title, Card, CardItem,
-  Content, Right, Icon, Button, Text } from "native-base";
+import { Container, Card, CardItem, Content, Right, Icon, Button, Text } from "native-base";
 
 import TopHeader from 'components/Header';
 
@@ -11,7 +10,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { navigation: { openDrawer, navigate, state }} = this.props;
+    const { navigation: { openDrawer, navigate }} = this.props;
     return (
       <Container>
         <TopHeader title="Header" openDrawer={openDrawer} />

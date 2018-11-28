@@ -7,7 +7,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        repos: action.payload
+        repos: action.payload,
       };
     default:
       return state;
