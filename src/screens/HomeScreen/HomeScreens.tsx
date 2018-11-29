@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Button, Body, Content,Text, Card, CardItem } from "native-base";
 
-import Header from 'components/Header';
+import Header from '../../components/Header';
 
 // TODO: вынести стили в отдельный файл
 class HomeScreen extends Component {

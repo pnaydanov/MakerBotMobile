@@ -1,5 +1,5 @@
 import React from 'react';
-import SideBar from 'components/SideBar';
+// import SideBar from 'components/SideBar';
 import { createDrawerNavigator } from 'react-navigation';
 
 import HomeScreen from './HomeScreen';
@@ -15,7 +15,7 @@ const HomeScreenRouter = createDrawerNavigator(
     Repo: { screen: RepoScreen },
   },
   {
-    contentComponent: props => <SideBar {...props} />,
+    // contentComponent: props => <SideBar {...props} />,
   },
 );
 export default HomeScreenRouter;

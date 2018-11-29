@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "native-base";
 
-import List from 'features/list';
+import List from '../../features/list';
 
 class RepoScreen extends Component {
   render() {

@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { actions as listActions } from 'features/list/redux';
+import { actions as listActions } from '../redux';
 
 class RepoList extends Component {
   componentDidMount() {
@@ -14,7 +14,7 @@ class RepoList extends Component {
     <View style={styles.item}>
       <Text>{item.name}</Text>
     </View>
-  );
+  )
 
   render() {
     const { repos } = this.props;
@@ -30,13 +30,13 @@ class RepoList extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   item: {
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc'
-  }
+    borderBottomColor: '#ccc',
+  },
 });
 
 function mapStateToProps(state) {
@@ -44,12 +44,12 @@ function mapStateToProps(state) {
   return {
     repos: storedRepositories,
   };
-};
+}
 
 function mapDispatchToProps(dispatch) {
   const actions = {
     getRepos: listActions.getRepos,
-  }
+  };
   return bindActionCreators(actions, dispatch);
 }
 

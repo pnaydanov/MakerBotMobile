@@ -14,29 +14,29 @@ const MainScreenNavigator = createBottomTabNavigator(
   },
   {
     tabBarPosition: 'bottom',
-    tabBarComponent: ({ navigation: { navigate, state } }) => (
+    tabBarComponent: ({ navigation: { navigate, state: { index } } }) => (
       <Footer>
         <FooterTab>
           <Button
             vertical
-            active={state.index === 0}
+            active={index === 0}
             onPress={() => navigate('LucyChat')}>
-            <Icon name="bowtie" ios="ios-bowtie" />
-            <Text>Lucy</Text>
+              <Icon name="bowtie" ios="ios-bowtie" />
+              <Text>Lucy</Text>
           </Button>
           <Button
             vertical
-            active={state.index === 1}
+            active={index === 1}
             onPress={() => navigate('NineChat')}>
-            <Icon name="briefcase" ios="ios-briefcase" />
-            <Text>Nine</Text>
+              <Icon name="briefcase" ios="ios-briefcase" />
+              <Text>Nine</Text>
           </Button>
           <Button
             vertical
-            active={state.index === 2}
+            active={index === 2}
             onPress={() => navigate('JadeChat')}>
-            <Icon name="headset" ios="ios-headset" />
-            <Text>Jade</Text>
+              <Icon name="headset" ios="ios-headset" />
+              <Text>Jade</Text>
           </Button>
         </FooterTab>
       </Footer>

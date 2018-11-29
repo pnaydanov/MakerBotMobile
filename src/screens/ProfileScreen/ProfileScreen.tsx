@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Alert } from "react-native";
 import { Container, Card, CardItem, Content, Right, Icon, Button, Text } from "native-base";
 
-import TopHeader from 'components/Header';
+import TopHeader from '../../components/Header';
 
 class Profile extends Component {
   componentDidMount() {
