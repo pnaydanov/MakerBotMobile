@@ -1,10 +1,17 @@
-import React, { Component } from "react";
-import { AppRegistry, Image, StatusBar } from "react-native";
-import { Container, Content, Text, List, ListItem, Header, Body, Title } from "native-base";
+/* @flow */
+import React, { Component } from 'react';
+import { Image } from 'react-native';
+import { Container, Content, Text, List, ListItem, Header, Body, Title } from 'native-base';
 
-const routes = ["Home", "Chat", "Profile", "Repo"];
+const routes = ['Home', 'Chat', 'Profile', 'Repo'];
 
-class SideBar extends Component {
+type Props = {
+  navigation: {
+    navigate: Function,
+  }
+}
+
+class SideBar extends Component<Props> {
   render() {
     const { navigation: { navigate } } = this.props;
     return (
@@ -15,15 +22,15 @@ class SideBar extends Component {
           </Body>
         </Header>
         <Content>
-        <Image
+          <Image
             source={{
-              uri: "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
+              uri: 'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png',
             }}
             style={{
               height: 120,
-              width: "100%",
-              alignSelf: "stretch",
-              position: "absolute"
+              width: '100%',
+              alignSelf: 'stretch',
+              position: 'absolute',
             }}
           />
           <Image
@@ -31,26 +38,24 @@ class SideBar extends Component {
             style={{
               height: 80,
               width: 70,
-              position: "absolute",
-              alignSelf: "center",
-              top: 20
+              position: 'absolute',
+              alignSelf: 'center',
+              top: 20,
             }}
             source={{
-              uri: "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png"
+              uri: 'https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png',
             }}
           />
           <List
             dataArray={routes}
             contentContainerStyle={{ marginTop: 120 }}
-            renderRow={data => {
-              return (
-                <ListItem
-                  button
-                  onPress={() => navigate(data)}>
-                  <Text>{data}</Text>
-                </ListItem>
-              );
-            }}
+            renderRow={data => (
+              <ListItem
+                button
+                onPress={() => navigate(data)}>
+                <Text>{data}</Text>
+              </ListItem>
+            )}
           />
         </Content>
       </Container>

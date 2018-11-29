@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation';
 import { Button, Text, Icon, Footer, FooterTab } from 'native-base';

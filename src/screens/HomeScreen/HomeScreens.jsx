@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Container, Button, Body, Content, Text, Card, CardItem } from 'native-base';
 
 import Header from 'components/Header';
+import styles from './styles';
 
 type Props = {
   navigation: {
@@ -12,7 +13,6 @@ type Props = {
   },
 };
 
-// TODO: вынести стили в отдельный файл
 class HomeScreen extends Component<Props> {
   render() {
     const { navigation: { openDrawer, navigate, state } } = this.props;
@@ -30,14 +30,14 @@ class HomeScreen extends Component<Props> {
           <Button full
             rounded
             dark
-            style={{ marginTop: 10 }}
+            style={styles.commonMargin}
             onPress={() => navigate('Chat')}>
             <Text>Chat With People</Text>
           </Button>
           <Button full
             rounded
             primary
-            style={{ marginTop: 10 }}
+            style={styles.commonMargin}
             onPress={() => navigate('Profile')}>
             <Text>Goto Profiles</Text>
           </Button>

@@ -1,7 +1,13 @@
-import React, { Component } from "react";
-import { Header, Title, Left, Icon, Right, Button, Body } from "native-base";
+/* @flow  */
+import React, { Component } from 'react';
+import { Header, Title, Left, Icon, Right, Button, Body } from 'native-base';
 
-class HomeHeader extends Component {
+type Props = {
+  openDrawer: Function,
+  title: String,
+}
+
+class HomeHeader extends Component<Props> {
   render() {
     const { openDrawer, title } = this.props;
 
@@ -11,7 +17,7 @@ class HomeHeader extends Component {
           <Button
             transparent
             onPress={() => openDrawer()}>
-            <Icon name="menu" ios='ios-menu' />
+            <Icon name="menu" ios="ios-menu" />
           </Button>
         </Left>
         <Body>
