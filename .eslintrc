@@ -4,7 +4,9 @@
       "browser": true
   },
   "plugins": [
-    "react"
+    "react",
+    "jsx-a11y",
+    "import"
   ],
   "extends": "airbnb",
   "rules": {
@@ -49,6 +51,7 @@
     "react/jsx-closing-tag-location": 0,
     "react/no-find-dom-node": 0,
     "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
+    "react/destructuring-assignment": 0,
     "react/sort-comp": [1, {
       "order": [
         "constructor",
