@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 import { Container, Button, Body, Content, Text, Card, CardItem } from 'native-base';
 
 import Header from 'components/Header';
+import Carousel from 'components/Carousel';
 import styles from './styles';
+
+const images = [
+  { source: 'https://cdn.pixabay.com/photo/2017/05/18/21/54/tower-bridge-2324875__340.jpg' },
+  { source: 'https://cdn.pixabay.com/photo/2017/05/16/21/24/gorilla-2318998__340.jpg' },
+  { source: 'https://cdn.pixabay.com/photo/2017/05/02/22/43/mushroom-2279558__340.jpg' },
+  { source: 'https://cdn.pixabay.com/photo/2017/05/19/07/34/teacup-2325722__340.jpg' },
+];
 
 type Props = {
   navigation: {
@@ -20,6 +28,7 @@ class HomeScreen extends Component<Props> {
       <Container>
         <Header openDrawer={openDrawer} title={state.routeName} />
         <Content padder>
+          <Carousel images={images} />
           <Card>
             <CardItem>
               <Body>
