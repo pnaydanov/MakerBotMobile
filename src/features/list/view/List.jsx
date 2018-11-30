@@ -32,8 +32,8 @@ class RepoList extends Component<Props> {
     );
   }
 
-  renderItem = ({ item }) => (
-    <View style={styles.item}>
+  renderItem = ({ item, key }) => (
+    <View key={key} style={styles.item}>
       <Text>{item.name}</Text>
     </View>
   );

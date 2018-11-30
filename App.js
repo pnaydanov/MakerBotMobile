@@ -40,8 +40,8 @@ class App extends Component {
 
   /** Загружает шрифты для native-base */
   /* eslint-disable */
-  _loadFont() {
-    Font.loadAsync({
+  async _loadFont() {
+    await Font.loadAsync({
       Roboto: require('native-base/Fonts/Roboto.ttf'),
       Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
       Ionicons: require('native-base/Fonts/Ionicons.ttf'),

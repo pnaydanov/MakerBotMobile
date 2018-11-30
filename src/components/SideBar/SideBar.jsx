@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Content, Text, List, ListItem, Header, Body, Title } from 'native-base';
 
-const routes = ['Home', 'Chat', 'Profile', 'Repo'];
+const routes = ['Home', 'Chat', 'Profile', 'Repo', 'Animation'];
 
 type Props = {
   navigation: {
