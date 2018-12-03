@@ -1,4 +1,6 @@
 node_modules/**/*
+.vscode/**/*
+output/**/*
 .expo/*
 .idea/*
 npm-debug.*
@@ -6,4 +8,3 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
-output/**/*
