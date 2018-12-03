@@ -6,6 +6,7 @@ import HomeScreen from './HomeScreen';
 import MainScreenNavigator from './ChatScreen/router';
 import ProfileScreen from './ProfileScreen';
 import RepoScreen from './RepoScreen';
+import AnimationScreen from './AnimationScreen';
 
 const HomeScreenRouter = createDrawerNavigator(
   {
@@ -13,6 +14,7 @@ const HomeScreenRouter = createDrawerNavigator(
     Chat: { screen: MainScreenNavigator },
     Profile: { screen: ProfileScreen },
     Repo: { screen: RepoScreen },
+    Animation: { screen: AnimationScreen },
   },
   {
     contentComponent: props => <SideBar {...props} />,
