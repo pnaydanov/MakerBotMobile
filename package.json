@@ -10,7 +10,9 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "flow": "flow; exit=0",
-    "flow-stop": "flow stop"
+    "flow-stop": "flow stop",
+    "postinstall": "remotedev-debugger --hostname 192.168.10.207 --port 5678 --wsEngine ws --injectserver",
+    "devtools": "react-devtools"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -34,6 +36,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.87.0",
-    "remote-redux-devtools": "^0.5.13"
+    "react-devtools": "^3.4.3",
+    "remote-redux-devtools": "^0.5.13",
+    "remotedev-rn-debugger": "^0.8.3"
   }
 }

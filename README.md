@@ -16,3 +16,6 @@
   3. `npm i`
   4. `npm start`
   5. Открыть в expo клиенте на устройстве ссылку после выполнения команды ex: 'exp://192.168.10.207:19000'
+
+# Запуск redux-dev-tools
+  [Запуск redux-dev-tools](./docs/redux-tools.md)

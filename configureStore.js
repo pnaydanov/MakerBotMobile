@@ -4,6 +4,8 @@ import {
   createStore,
   compose,
 } from 'redux';
+import { Platform } from 'react-native';
+import devTools from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
 
 import * as listFeature from 'features/list';
@@ -18,6 +20,11 @@ function configureStore(extra) {
     reducer,
     compose(
       applyMiddleware(...middlewares),
+      devTools({
+        name: Platform.OS,
+        hostname: '192.168.10.207',
+        port: 5678,
+      }),
     ),
   );
 
