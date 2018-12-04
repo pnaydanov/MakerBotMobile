@@ -12,7 +12,15 @@
     "flow": "flow; exit=0",
     "flow-stop": "flow stop",
     "postinstall": "remotedev-debugger --hostname 192.168.10.207 --port 5678 --wsEngine ws --injectserver",
-    "devtools": "react-devtools"
+    "devtools": "react-devtools",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "\\.(js|jsx)$": "babel-jest"
+    }
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -28,6 +36,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-expo": "^5.0.0",
     "eslint": "^5.9.0",
@@ -36,7 +45,10 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.87.0",
+    "jest": "^23.6.0",
+    "metro-react-native-babel-preset": "^0.50.0",
     "react-devtools": "^3.4.3",
+    "react-test-renderer": "^16.6.3",
     "remote-redux-devtools": "^0.5.13",
     "remotedev-rn-debugger": "^0.8.3"
   }
