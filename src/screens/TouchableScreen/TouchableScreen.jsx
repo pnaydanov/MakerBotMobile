@@ -1,8 +1,9 @@
 /* @flow */
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Container, Header, Content } from 'native-base';
 
 import { ButtonHighlight } from 'components/Buttons';
+import Input from 'components/Input';
 import styles from './style';
 
 type Props = {
@@ -11,13 +12,17 @@ type Props = {
 class TouchabelScreen extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <ButtonHighlight
-          onPress={() => console.log('press')}
-          styles={styles.button}
-          text="Touch Here"
-        />
-      </View>
+      <Container style={styles.container}>
+        <Header />
+        <Content>
+          <Input />
+          <ButtonHighlight
+            onPress={() => console.log('press')}
+            styles={styles.button}
+            text="Touch Here"
+          />
+        </Content>
+      </Container>
     );
   }
 }
