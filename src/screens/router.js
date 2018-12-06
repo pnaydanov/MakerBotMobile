@@ -8,6 +8,7 @@ import ProfileScreen from './ProfileScreen';
 import RepoScreen from './RepoScreen';
 import AnimationScreen from './AnimationScreen';
 import TouchableScreen from './TouchableScreen';
+import DragScreen from './DragScreen';
 
 const HomeScreenRouter = createDrawerNavigator(
   {
@@ -17,6 +18,7 @@ const HomeScreenRouter = createDrawerNavigator(
     Repo: { screen: RepoScreen },
     Animation: { screen: AnimationScreen },
     Touchable: { screen: TouchableScreen },
+    Drag: { screen: DragScreen },
   },
   {
     contentComponent: props => <SideBar {...props} />,
