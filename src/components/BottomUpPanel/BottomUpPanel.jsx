@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Animated,
   Dimensions,
-  ScrollView,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
@@ -30,7 +29,6 @@ class BottomUpPanel extends Component {
   static defaultProps = {
     isOpen: false,
   };
-
 
   componentWillMount() {
     this._animatedPosition.addListener(value => {
@@ -92,21 +90,7 @@ class BottomUpPanel extends Component {
               </View>
             </Animated.View>
           </TouchableWithoutFeedback>
-
-          {/* Scrollable content */}
-          <ScrollView
-            ref={scrollView => { this._scrollView = scrollView; }}
-            // Enable scrolling only when the window is open
-            scrollEnabled={this.state.open}
-            // Hide all scrolling indicators
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-            // Trigger onScroll often
-            scrollEventThrottle={16}
-            onScroll={this._handleScroll}>
-            {/* Render content components */}
-            {content()}
-          </ScrollView>
+          {content()}
         </Animated.View>
       </Animated.View>
     );
@@ -132,7 +116,6 @@ class BottomUpPanel extends Component {
   };
 
   close = () => {
-    this._scrollView.scrollTo({ y: 0 });
     Animated.timing(this._animatedPosition, {
       toValue: this.config.position.start,
       duration: 600,

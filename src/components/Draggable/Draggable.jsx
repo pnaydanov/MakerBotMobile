@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, PanResponder, Animated } from 'react-native';
+import { PanResponder, Animated } from 'react-native';
 import styles from './style';
 
 class Draggable extends Component {
@@ -7,7 +7,6 @@ class Draggable extends Component {
     super(props);
     this.state = {
       pan: new Animated.ValueXY(),
-      opacity: new Animated.Value(1),
     };
   }
 
@@ -32,17 +31,13 @@ class Draggable extends Component {
   }
 
   render() {
-    const { pan, opacity } = this.state;
+    const { pan } = this.state;
     const panStyle = { transform: pan.getTranslateTransform() };
     return (
-      <View style={{ width: '20%', alignItems: 'center' }}>
-        <View style={{ position: 'absolute', zIndex: 1000 }}>
-          <Animated.View
-            {...this.panResponder.panHandlers}
-            style={[panStyle, styles.circle, { opacity }]}
-          />
-        </View>
-      </View>
+      <Animated.View
+        {...this.panResponder.panHandlers}
+        style={[panStyle, styles.circle, { zIndex: 10, position: 'absolute' }]}
+      />
     );
   }
 }

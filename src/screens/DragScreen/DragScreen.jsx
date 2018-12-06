@@ -24,6 +24,7 @@ export default class DragScreen extends Component {
             fontSize: 15,
           }}
           bottomUpSlideBtn={{
+            position: 'relative',
             display: 'flex',
             alignSelf: 'flex-start',
             backgroundColor: 'black',
