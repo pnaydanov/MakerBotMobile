@@ -15,19 +15,7 @@ class Draggable extends Component {
     this._val = { x: 0, y: 0 };
     pan.addListener(value => this._val = value);
 
-    this.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: (e, gesture) => true,
-      onPanResponderGrant: (e, gesture) => {
-        pan.setOffset({
-          x: this._val.x,
-          y: this._val.y,
-        });
-        pan.setValue({ x: 0, y: 0 });
-      },
-      onPanResponderMove: Animated.event([
-        null, { dx: pan.x, dy: pan.y },
-      ]),
-    });
+    this.panResponder = this._createPanResponder();
   }
 
   render() {
@@ -39,6 +27,30 @@ class Draggable extends Component {
         style={[panStyle, styles.circle, { zIndex: 10, position: 'absolute' }]}
       />
     );
+  }
+
+  _createPanResponder() {
+    const { pan } = this.state;
+
+    return PanResponder.create({
+      onStartShouldSetPanResponder: (e, gesture) => true,
+      onPanResponderGrant: (e, gesture) => {
+        pan.setOffset({
+          x: this._val.x,
+          y: this._val.y,
+        });
+        pan.setValue({ x: 0, y: 0 });
+      },
+      onPanResponderMove: Animated.event([
+        null, { dx: pan.x, dy: pan.y },
+      ]),
+      onPanResponderRelease: (e, gesture) => {
+        Animated.spring(this.state.pan, {
+          toValue: { x: 0, y: 0 },
+          friction: 5,
+        }).start();
+      },
+    });
   }
 }
 
