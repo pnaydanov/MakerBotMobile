@@ -1,18 +1,17 @@
 import React, { Component, Fragment } from 'react';
-import {
-  View,
-  Dimensions,
-} from 'react-native';
+import { View, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Draggable from 'components/Draggable';
 import BottomUpPanel from 'components/BottomUpPanel';
+import Shedule from 'features/shedule';
 const { height } = Dimensions.get('window');
 
-export default class DragScreen extends Component {
+class DragScreen extends Component {
   render() {
     return (
       <Fragment>
+        <Shedule />
         <BottomUpPanel
           content={this.renderBottomUpPanelContent}
           icon={this.renderBottomUpPanelIcon}
@@ -32,7 +31,6 @@ export default class DragScreen extends Component {
             borderTopColor: 'grey',
             borderTopWidth: 5,
           }} />
-        <Draggable />
       </Fragment>
     );
   }
@@ -46,3 +44,5 @@ export default class DragScreen extends Component {
 
   renderBottomUpPanelIcon = () => <Ionicons name="ios-arrow-up" style={{ color: 'white' }} size={30} />
 }
+
+export default DragScreen;
