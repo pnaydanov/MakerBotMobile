@@ -68,8 +68,9 @@ class BottomUpPanel extends Component {
       inputRange: [0, 1],
       outputRange: ['0deg', '180deg'],
     });
+
     return (
-      <Animated.View style={[styles.buttonUpPanelView, { height: animatedHeight }]}>
+      <Animated.View style={[styles.buttonUpPanelView, { height: animatedHeight * 0.8 }]}>
         <Animated.View
           style={[styles.content, {
             // Add padding at the bottom to fit all content on the screen

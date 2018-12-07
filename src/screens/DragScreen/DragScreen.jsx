@@ -20,7 +20,7 @@ class DragScreen extends Component {
           content={this.renderBottomUpPanelContent}
           icon={this.renderBottomUpPanelIcon}
           topEnd={height - (height * 0.8)}
-          startHeight={80}
+          startHeight={70}
           headerText="Tasks"
           headerTextStyle={{
             color: 'white',

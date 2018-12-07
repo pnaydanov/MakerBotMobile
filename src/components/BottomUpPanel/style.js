@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   buttonUpPanelView: {
     position: 'absolute',
-    zIndex: 1,
+    zIndex: 0,
     bottom: 0,
     width,
     alignItems: 'center',
