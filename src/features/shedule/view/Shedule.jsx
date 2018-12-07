@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { View, Text, TouchableHighlight } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 
 import styles from './style';
@@ -7,6 +7,7 @@ import styles from './style';
 class Shedule extends Component {
   constructor() {
     super();
+    this.renderEvent = this.renderEvent.bind(this);
     this.data = [
       { time: '09:00', title: 'Event 1', description: 'Event 1 Description', lineColor: 'green', circleColor: 'green' },
       { time: '10:45', title: 'Event 2', description: 'Event 2 Description' },
@@ -31,7 +32,7 @@ class Shedule extends Component {
         options={{
           style: { paddingTop: 5 },
         }}
-        renderEvent={this.renderEvent}
+        renderDetail={this.renderEvent}
       />
     );
   }
@@ -48,9 +49,13 @@ class Shedule extends Component {
     }
 
     return (
-      <View style={{ flex: 1 }} onPress={() => console.log('press')}>
-        {title}
-        {desc}
+      <View style={{ flex: 1 }}>
+        <TouchableHighlight onPress={() => console.log('press')} underlayColor="gray">
+          <Fragment>
+            {title}
+            {desc}
+          </Fragment>
+        </TouchableHighlight>
       </View>
     );
   }

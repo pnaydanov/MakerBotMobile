@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   content: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#fff',
     height,
   },
   buttonUpPanelView: {

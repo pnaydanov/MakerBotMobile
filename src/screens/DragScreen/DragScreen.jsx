@@ -1,7 +1,9 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { View, Dimensions } from 'react-native';
+import { Container, Content } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
+import Header from 'components/Header';
 import Draggable from 'components/Draggable';
 import BottomUpPanel from 'components/BottomUpPanel';
 import Shedule from 'features/shedule';
@@ -10,7 +12,8 @@ const { height } = Dimensions.get('window');
 class DragScreen extends Component {
   render() {
     return (
-      <Fragment>
+      <Container>
+        <Header title="Shedule" />
         <Shedule />
         <BottomUpPanel
           content={this.renderBottomUpPanelContent}
@@ -31,7 +34,7 @@ class DragScreen extends Component {
             borderTopColor: 'grey',
             borderTopWidth: 5,
           }} />
-      </Fragment>
+      </Container>
     );
   }
 
