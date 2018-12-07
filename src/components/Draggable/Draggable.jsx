@@ -24,8 +24,9 @@ class Draggable extends Component {
     return (
       <Animated.View
         {...this.panResponder.panHandlers}
-        style={[panStyle, styles.circle, { zIndex: 10, position: 'absolute' }]}
-      />
+        style={[panStyle]}>
+        {this.props.children}
+      </Animated.View>
     );
   }
 

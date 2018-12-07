@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { View, Dimensions } from 'react-native';
-import { Container, Content } from 'native-base';
+import { Container } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
 
 import Header from 'components/Header';
 import Draggable from 'components/Draggable';
 import BottomUpPanel from 'components/BottomUpPanel';
+import Task from 'components/Task';
 import Shedule from 'features/shedule';
 const { height } = Dimensions.get('window');
 
@@ -39,9 +40,13 @@ class DragScreen extends Component {
   }
 
   renderBottomUpPanelContent = () => (
-    <View>
-      <Draggable />
-      <Draggable />
+    <View style={{ flex: 1, flexDirection: 'column' }}>
+      <Draggable>
+        <Task text="Task1" />
+      </Draggable>
+      <Draggable>
+        <Task text="Task2" />
+      </Draggable>
     </View>
   )
 
