@@ -28,12 +28,13 @@ class RepoList extends Component<Props> {
         styles={styles.container}
         data={repos}
         renderItem={this.renderItem}
+        keyExtractor={(item, index) => index.toString()}
       />
     );
   }
 
-  renderItem = ({ item, key }) => (
-    <View key={key} style={styles.item}>
+  renderItem = ({ item }) => (
+    <View style={styles.item}>
       <Text>{item.name}</Text>
     </View>
   );
