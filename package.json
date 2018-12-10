@@ -24,11 +24,13 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "expo": "^31.0.2",
+    "expo": "^31.0.6",
     "native-base": "^2.8.1",
+    "prop-types": "^15.6.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "react-navigation": "^3.0.1",
+    "react-native-timeline-listview": "^0.2.3",
+    "react-navigation": "^3.0.7",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
@@ -39,7 +41,7 @@
     "babel-jest": "^23.6.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-expo": "^5.0.0",
-    "eslint": "^5.9.0",
+    "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
@@ -49,7 +51,8 @@
     "metro-react-native-babel-preset": "^0.50.0",
     "react-devtools": "^3.4.3",
     "react-test-renderer": "^16.6.3",
-    "remote-redux-devtools": "^0.5.13",
-    "remotedev-rn-debugger": "^0.8.3"
+    "remote-redux-devtools": "^0.5.14",
+    "remotedev-rn-debugger": "^0.8.3",
+    "remotedev-server": "^0.3.1"
   }
 }

@@ -8,9 +8,11 @@ import ProfileScreen from './ProfileScreen';
 import RepoScreen from './RepoScreen';
 import AnimationScreen from './AnimationScreen';
 import TouchableScreen from './TouchableScreen';
+import DragScreen from './DragScreen';
 
 const HomeScreenRouter = createDrawerNavigator(
   {
+    Drag: { screen: DragScreen },
     Home: { screen: HomeScreen },
     Chat: { screen: MainScreenNavigator },
     Profile: { screen: ProfileScreen },
