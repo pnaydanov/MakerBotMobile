@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import Timeline from 'react-native-timeline-listview';
 import { bind } from 'decko';
-import PropTypes from 'prop-types';
-import moment from 'moment';
 
 import styles from './style';
 
@@ -11,7 +9,7 @@ class TimelineComponent extends Component {
   constructor() {
     super();
     this.data = [
-      { time: '00:00', title: 'Event 1', description: 'Event 1 Description', lineColor: 'green', circleColor: 'green' },
+      { time: '00:00', title: 'Event 1', description: 'Event 1 Description', lineColor: '#5cab74', circleColor: '#5cab74' },
       { time: '01:00', title: 'Event 2', description: 'Event 1 Description' },
       { time: '02:00', title: 'Event 3', description: 'Event 1 Description' },
       { time: '03:00', title: 'Event 4', description: 'Event 1 Description' },
@@ -39,40 +37,23 @@ class TimelineComponent extends Component {
     ];
   }
 
-  static propTypes = {
-    date: PropTypes.number.isRequired,
-  }
-
-  shouldComponentUpdate(nextProps) {
-    const { date } = this.props;
-    if (nextProps.date !== date) return true;
-    return false;
-  }
-
   render() {
-    const { date } = this.props;
-
     return (
-      <Fragment>
-        <Text style={{ textAlign: 'center', fontSize: 18, padding: 5 }}>
-          {date && moment(date).format('DD MMMM YYYY')}
-        </Text>
-        <Timeline
-          separator
-          data={this.data}
-          circleSize={20}
-          circleColor="rgb(45,156,219)"
-          lineColor="rgb(45,156,219)"
-          timeContainerStyle={styles.timeContainerStyle}
-          timeStyle={styles.timeStyle}
-          descriptionStyle={styles.descriptionStyle}
-          innerCircle="dot"
-          options={{
-            style: { paddingTop: 5 },
-          }}
-          renderDetail={this.renderEvent}
-      />
-      </Fragment>
+      <Timeline
+        separator
+        data={this.data}
+        circleSize={20}
+        circleColor="rgb(45,156,219)"
+        lineColor="rgb(45,156,219)"
+        timeContainerStyle={styles.timeContainerStyle}
+        timeStyle={styles.timeStyle}
+        descriptionStyle={styles.descriptionStyle}
+        innerCircle="dot"
+        options={{
+          style: { paddingTop: 5 },
+        }}
+        renderDetail={this.renderEvent}
+    />
     );
   }
 
