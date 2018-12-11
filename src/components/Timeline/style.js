@@ -1,16 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    paddingTop: 65,
-    backgroundColor: 'white',
-  },
-  list: {
-    flex: 1,
-    marginTop: 20,
-  },
   title: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -28,6 +18,18 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     color: 'gray',
   },
+  timeContainerStyle: {
+    minWidth: 52,
+    marginTop: -5,
+  },
+  timeStyle: {
+    textAlign: 'center',
+    backgroundColor: '#ff9797',
+    color: 'white',
+    padding: 5,
+    borderRadius: 13,
+  },
+  descriptionStyle: { color: 'gray' },
 });
 
 export default styles;

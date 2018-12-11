@@ -1,64 +1,71 @@
-import React, { Component, Fragment } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
-import Timeline from 'react-native-timeline-listview';
+import React, { Component } from 'react';
+import moment from 'moment';
+import { bind } from 'decko';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
-import styles from './style';
+import { actions as sheduleActions } from 'features/shedule/redux';
+import swipeDirection, { getSwipeDirection } from 'features/shedule/model/swipeDirection';
+
+import Swiper from 'react-native-swiper';
+import Timeline from 'components/Timeline';
 
 class Shedule extends Component {
-  constructor() {
-    super();
-    this.renderEvent = this.renderEvent.bind(this);
-    this.data = [
-      { time: '09:00', title: 'Event 1', description: 'Event 1 Description', lineColor: 'green', circleColor: 'green' },
-      { time: '10:45', title: 'Event 2', description: 'Event 2 Description' },
-      { time: '12:00', title: 'Event 3', description: 'Event 3 Description' },
-      { time: '14:00', title: 'Event 4', description: 'Event 4 Description' },
-      { time: '16:30', title: 'Event 5', description: 'Event 5 Description' },
-    ];
+  state={
+    curIndex: 0,
+  }
+
+  static propTypes = {
+    setCurDate: PropTypes.func.isRequired,
+    curDate: PropTypes.number.isRequired,
   }
 
   render() {
+    const { curDate } = this.props;
     return (
-      <Timeline
-        separator
-        data={this.data}
-        circleSize={20}
-        circleColor="rgb(45,156,219)"
-        lineColor="rgb(45,156,219)"
-        timeContainerStyle={{ minWidth: 52, marginTop: -5 }}
-        timeStyle={{ textAlign: 'center', backgroundColor: '#ff9797', color: 'white', padding: 5, borderRadius: 13 }}
-        descriptionStyle={{ color: 'gray' }}
-        innerCircle="dot"
-        options={{
-          style: { paddingTop: 5 },
-        }}
-        renderDetail={this.renderEvent}
-      />
+      <Swiper
+        showsButtons={false}
+        showsPagination={false}
+        onIndexChanged={this._onIndexChanged}>
+        <Timeline date={curDate} />
+        <Timeline date={curDate} />
+        <Timeline date={curDate} />
+      </Swiper>
     );
   }
 
-  renderEvent(rowData, sectionID, rowID) {
-    let title = <Text style={[styles.title]}>{rowData.title}</Text>;
-    let desc = null;
-    if (rowData.description) {
-      desc = (
-        <View style={styles.descriptionContainer}>
-          <Text style={[styles.textDescription]}>{rowData.description}</Text>
-        </View>
-      );
-    }
+  /**
+   * Обработка swipe слайда
+   * @param {number} index - Индекс нового слайда
+   */
+  @bind
+  _onIndexChanged(index) {
+    const { setCurDate, curDate } = this.props;
+    const { curIndex } = this.state;
 
-    return (
-      <View style={{ flex: 1 }}>
-        <TouchableHighlight onPress={() => console.log('press')} underlayColor="gray">
-          <Fragment>
-            {title}
-            {desc}
-          </Fragment>
-        </TouchableHighlight>
-      </View>
-    );
+    const direction = getSwipeDirection(index, curIndex);
+    const setDate = {
+      [swipeDirection.LEFT]: () => setCurDate(moment(curDate).add(1, 'd').valueOf()),
+      [swipeDirection.RIGHT]: () => setCurDate(moment(curDate).subtract(1, 'd').valueOf()),
+    };
+
+    setDate[direction]();
+    this.setState({ curIndex: index });
   }
 }
 
-export default Shedule;
+function mapStateToProps(state) {
+  return {
+    curDate: state.shedule.curDate,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  const actions = {
+    setCurDate: sheduleActions.setCurDate,
+  };
+  return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shedule);

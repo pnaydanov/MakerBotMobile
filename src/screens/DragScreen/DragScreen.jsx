@@ -12,11 +12,12 @@ const { height } = Dimensions.get('window');
 
 class DragScreen extends Component {
   render() {
+    const { navigation: { openDrawer } } = this.props;
     return (
       <Container>
-        <Header title="Shedule" />
+        <Header title="Shedule" openDrawer={openDrawer} />
         <Shedule />
-        <BottomUpPanel
+        {/* <BottomUpPanel
           content={this.renderBottomUpPanelContent}
           icon={this.renderBottomUpPanelIcon}
           topEnd={height - (height * 0.8)}
@@ -34,7 +35,7 @@ class DragScreen extends Component {
             alignItems: 'center',
             borderTopColor: 'grey',
             borderTopWidth: 5,
-          }} />
+          }} /> */}
       </Container>
     );
   }

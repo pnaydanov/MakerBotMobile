@@ -9,6 +9,7 @@ import devTools from 'remote-redux-devtools';
 import thunk from 'redux-thunk';
 
 import * as listFeature from 'features/list';
+import * as sheduleFeature from 'features/shedule';
 
 function configureStore(extra) {
   const middlewares = [
@@ -34,6 +35,7 @@ function configureStore(extra) {
 function createReducer() {
   return combineReducers({
     list: listFeature.reducer,
+    shedule: sheduleFeature.reducer,
   });
 }
 
