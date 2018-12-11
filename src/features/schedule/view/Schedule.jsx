@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import { bind } from 'decko';
 import { connect } from 'react-redux';
@@ -10,6 +10,7 @@ import swipeDirection, { getSwipeDirection } from 'features/schedule/model/swipe
 
 import Swiper from 'react-native-swiper';
 import Timeline from 'components/Timeline';
+import Calendar from 'components/Calendar';
 
 class Schedule extends Component {
   state={
@@ -24,15 +25,32 @@ class Schedule extends Component {
   render() {
     const { curDate } = this.props;
     return (
-      <Swiper
-        showsButtons={false}
-        showsPagination={false}
-        onIndexChanged={this._onIndexChanged}>
-        <Timeline date={curDate} />
-        <Timeline date={curDate} />
-        <Timeline date={curDate} />
-      </Swiper>
+      <Fragment>
+        <Calendar
+          onDateSelected={this._onCalendarDateSelected}
+          date={curDate}
+        />
+        <Swiper
+          ref={r => { this.swiper = r; }}
+          showsButtons={false}
+          showsPagination={false}
+          onIndexChanged={this._onIndexChanged}>
+          <Timeline />
+          <Timeline />
+          <Timeline />
+        </Swiper>
+      </Fragment>
     );
+  }
+
+  /** Обрабатывает выделение даты компонента Calendar
+   * @param {date} date - дата
+   */
+  @bind
+  _onCalendarDateSelected(date) {
+    const { setCurDate } = this.props;
+    setCurDate(moment(date).valueOf());
+    this.swiper.scrollBy(0);
   }
 
   /**
