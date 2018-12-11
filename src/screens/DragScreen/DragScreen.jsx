@@ -7,7 +7,7 @@ import Header from 'components/Header';
 import Draggable from 'components/Draggable';
 import BottomUpPanel from 'components/BottomUpPanel';
 import Task from 'components/Task';
-import Shedule from 'features/shedule';
+import Schedule from 'features/schedule';
 const { height } = Dimensions.get('window');
 
 class DragScreen extends Component {
@@ -16,7 +16,7 @@ class DragScreen extends Component {
     return (
       <Container>
         <Header title="Shedule" openDrawer={openDrawer} />
-        <Shedule />
+        <Schedule />
         {/* <BottomUpPanel
           content={this.renderBottomUpPanelContent}
           icon={this.renderBottomUpPanelIcon}

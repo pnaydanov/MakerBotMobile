@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { actions as sheduleActions } from 'features/shedule/redux';
-import swipeDirection, { getSwipeDirection } from 'features/shedule/model/swipeDirection';
+import { actions as scheduleActions } from 'features/schedule/redux';
+import swipeDirection, { getSwipeDirection } from 'features/schedule/model/swipeDirection';
 
 import Swiper from 'react-native-swiper';
 import Timeline from 'components/Timeline';
 
-class Shedule extends Component {
+class Schedule extends Component {
   state={
     curIndex: 0,
   }
@@ -57,15 +57,15 @@ class Shedule extends Component {
 
 function mapStateToProps(state) {
   return {
-    curDate: state.shedule.curDate,
+    curDate: state.schedule.curDate,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   const actions = {
-    setCurDate: sheduleActions.setCurDate,
+    setCurDate: scheduleActions.setCurDate,
   };
   return bindActionCreators(actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Shedule);
+export default connect(mapStateToProps, mapDispatchToProps)(Schedule);

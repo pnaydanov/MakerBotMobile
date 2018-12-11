@@ -1,7 +1,7 @@
-import Shedule from './view/Shedule';
+import Schedule from './view/Schedule';
 import { reducer, actions } from './redux';
 
-export default Shedule;
+export default Schedule;
 export {
   reducer,
   actions,
