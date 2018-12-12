@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   },
   timeContainerStyle: {
     minWidth: 52,
-    marginTop: -5,
   },
   timeStyle: {
     textAlign: 'center',

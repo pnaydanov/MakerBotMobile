@@ -49,9 +49,6 @@ class TimelineComponent extends Component {
         timeStyle={styles.timeStyle}
         descriptionStyle={styles.descriptionStyle}
         innerCircle="dot"
-        options={{
-          style: { paddingTop: 5 },
-        }}
         renderDetail={this.renderEvent}
     />
     );

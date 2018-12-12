@@ -15,7 +15,7 @@ class DragScreen extends Component {
     const { navigation: { openDrawer } } = this.props;
     return (
       <Container>
-        <Header title="Shedule" openDrawer={openDrawer} />
+        <Header title="Schedule" openDrawer={openDrawer} />
         <Schedule />
         {/* <BottomUpPanel
           content={this.renderBottomUpPanelContent}
