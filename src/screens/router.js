@@ -9,16 +9,18 @@ import RepoScreen from './RepoScreen';
 import AnimationScreen from './AnimationScreen';
 import TouchableScreen from './TouchableScreen';
 import DragScreen from './DragScreen';
+import BottomSheetScreen from './BottomSheetScreen';
 
 const HomeScreenRouter = createDrawerNavigator(
   {
-    Drag: { screen: DragScreen },
+    Schedule: { screen: DragScreen },
     Home: { screen: HomeScreen },
     Chat: { screen: MainScreenNavigator },
     Profile: { screen: ProfileScreen },
     Repo: { screen: RepoScreen },
     Animation: { screen: AnimationScreen },
     Touchable: { screen: TouchableScreen },
+    BottomSheet: { screen: BottomSheetScreen },
   },
   {
     contentComponent: props => <SideBar {...props} />,
