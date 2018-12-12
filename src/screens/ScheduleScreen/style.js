@@ -23,6 +23,10 @@ const styles = {
     shadowRadius: 5,
     shadowColor: '#000',
     shadowOffset: { height: 2, width: 0 },
+    __text: {
+      color: '#757575',
+      fontSize: 20,
+    },
   },
   container: {
     backgroundColor: '#fff',

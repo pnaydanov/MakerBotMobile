@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { Text, TouchableHighlight, View } from 'react-native';
 import { Container } from 'native-base';
 import { bind } from 'decko';
 
 import Header from 'components/Header';
-import Draggable from 'components/Draggable';
 import BottomSheet from 'components/BottomSheet';
-import Task from 'components/Task';
+import Board from 'features/board';
 import Schedule from 'features/schedule';
 
 import styles, { sheetHeight, panelHeaderHeight } from './style';
@@ -30,16 +29,14 @@ class ScheduleScreen extends Component {
             </Fragment>
           )}>
           <Fragment>
-            <TouchableHighlight underlayColor="#d1d1d1" style={styles.panelHeader} onPress={this._toogleBottomSheet}>
-              <Text style={{ color: '#757575', fontSize: 20 }}>Task</Text>
+            <TouchableHighlight
+              underlayColor="#d1d1d1"
+              style={styles.panelHeader}
+              onPress={this._toogleBottomSheet}>
+              <Text style={styles.panelHeader.__text}>Task</Text>
             </TouchableHighlight>
             <View style={styles.container}>
-              <Draggable>
-                <Task text="Task1" />
-              </Draggable>
-              <Draggable>
-                <Task text="Task2" />
-              </Draggable>
+              <Board />
             </View>
           </Fragment>
         </BottomSheet>

@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 
 import * as listFeature from 'features/list';
 import * as scheduleFeature from 'features/schedule';
+import * as boardFeature from 'features/board';
 
 function configureStore(extra) {
   const middlewares = [
@@ -35,6 +36,7 @@ function configureStore(extra) {
 function createReducer() {
   return combineReducers({
     list: listFeature.reducer,
+    board: boardFeature.reducer,
     schedule: scheduleFeature.reducer,
   });
 }
