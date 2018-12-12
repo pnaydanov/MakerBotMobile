@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Animated } from 'react-native';
+import { Dimensions, Animated } from 'react-native';
+import { Container } from 'native-base';
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import PropTypes from 'prop-types';
 
-import styles from './style';
 const { height } = Dimensions.get('window');
 
 class BottomSheet extends Component {
@@ -15,6 +15,7 @@ class BottomSheet extends Component {
   static propTypes = {
     content: PropTypes.element,
     children: PropTypes.element,
+    onRef: PropTypes.func.isRequired,
     draggableRange: PropTypes.object,
   }
 
@@ -25,21 +26,27 @@ class BottomSheet extends Component {
     },
   }
 
+  componentDidMount() {
+    // Возвращает ref компонента
+    this.props.onRef(this.slidingUpPanel);
+  }
+
   render() {
     const { draggableRange, content, children } = this.props;
     return (
-      <View style={styles.container}>
+      <Container>
         {content}
         <SlidingUpPanel
+          ref={r => { this.slidingUpPanel = r; }}
           visible
           startCollapsed
+          allowDragging={false}
           showBackdrop={false}
-          ref={r => { this._panel = r; }}
           draggableRange={draggableRange}
           onDrag={v => this._draggedValue.setValue(v)}>
           {children}
         </SlidingUpPanel>
-      </View>
+      </Container>
     );
   }
 }
