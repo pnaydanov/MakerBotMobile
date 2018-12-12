@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 import { bind } from 'decko';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { Container } from 'native-base';
 
 import { actions as scheduleActions } from 'features/schedule/redux';
 import swipeDirection, { getSwipeDirection } from 'features/schedule/model/swipeDirection';
@@ -20,12 +21,13 @@ class Schedule extends Component {
   static propTypes = {
     setCurDate: PropTypes.func.isRequired,
     curDate: PropTypes.number.isRequired,
+    innerStyle: PropTypes.object.isRequired,
   }
 
   render() {
-    const { curDate } = this.props;
+    const { curDate, innerStyle } = this.props;
     return (
-      <Fragment>
+      <Container style={{ ...innerStyle }}>
         <Calendar
           onDateSelected={this._onCalendarDateSelected}
           date={curDate}
@@ -39,7 +41,7 @@ class Schedule extends Component {
           <Timeline />
           <Timeline />
         </Swiper>
-      </Fragment>
+      </Container>
     );
   }
 
