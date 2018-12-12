@@ -33,7 +33,7 @@ class ScheduleScreen extends Component {
               underlayColor="#d1d1d1"
               style={styles.panelHeader}
               onPress={this._toogleBottomSheet}>
-              <Text style={styles.panelHeader.__text}>Task</Text>
+              <Text style={styles.panelHeaderText}>Task</Text>
             </TouchableHighlight>
             <View style={styles.container}>
               <Board />
